@@ -1,6 +1,0 @@
-REGION='francecentral'
-az deployment sub create --location $REGION --template-file  main.bicep -c
-
-az group list -o table
-RG=""
-az group delete --resource-group $RG --yes
