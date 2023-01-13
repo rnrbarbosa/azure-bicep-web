@@ -5,9 +5,14 @@
     "myPrefix": {
       "value": ""
     },
-    "dbPassword": {
+    "environment": {
       "value": ""
     },
-    "environment": {}
+    "solution": {
+      "value": ""
+    },
+    "project": {
+      "value": ""
+    }
   }
 }

@@ -47,5 +47,5 @@ Please enter a choice [Default choice(1)]: 1
 ```
 ## Todo
 
-- Azure Container Registry
+- Azure Container Registry (#WiP)
 - Azure Key Vault

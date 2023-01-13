@@ -36,7 +36,7 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   }
 }
 
-module storage '../../Resources/IaC/DATA/storage_001.bicep' = {
+module storage 'DATA/storage_001.bicep' = {
   name: 'stor-${myPrefix}'
   scope: rg
   params: {
@@ -44,7 +44,7 @@ module storage '../../Resources/IaC/DATA/storage_001.bicep' = {
   }
 }
 
-module database '../../Resources/IaC/SQL/db_001.bicep' = {
+module database 'SQL/db_001.bicep' = {
   name: 'db-${myPrefix}'
   scope: rg
   params: {
@@ -54,7 +54,7 @@ module database '../../Resources/IaC/SQL/db_001.bicep' = {
   }
 }
 
-module monitoring '../../Resources/Iac/MON/monitoring_001.bicep' = {
+module monitoring 'MON/monitoring_001.bicep' = {
   name: 'mon-${myPrefix}'
   scope: rg
   params: {
@@ -63,13 +63,7 @@ module monitoring '../../Resources/Iac/MON/monitoring_001.bicep' = {
   }
 }
 
-module acr '../../Resources/IaC/ACR/acr_001.bicep' = {
-  scope: rg
-  name: 'acr-${myPrefix}'
-}
-
-
-module capp '../../Resources/IaC/ACA/aca_001.bicep' = {
+module capp 'ACA/aca_001.bicep' = {
   name: 'app-${myPrefix}'
   scope: rg
   params: {
