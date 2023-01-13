@@ -19,7 +19,7 @@ The following Azure Services were used:
 ## Architecture (in Bicep)
 
 
-![](./IaC/azure-aca-architecture.png)
+![](./azure-aca-architecture.png)
 
 ## How to Use It
 
