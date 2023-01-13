@@ -17,10 +17,10 @@ param DockerRegistryUsername string
 param DockerRegistryPassword string
 
 @description('Docker image name')
-param ImageName string
+param DockerImageName string
 
 @description('Docker image tag')
-param ImageTag string
+param DockerImageTag string
 
 // From logAnalytics Workspace
 param logCustomerId string
@@ -111,7 +111,7 @@ resource aca_pod 'Microsoft.App/containerApps@2022-03-01' = {
       containers: [
         {
           name: cAppName
-          image: '${ImageName}:${ImageTag}'
+          image: '${DockerImageName}:${DockerImageTag}'
           env: [
             {
               name: 'USER'

@@ -14,13 +14,18 @@ param myPrefix string
 param dbPassword string
 
 @description('Environment')
+@allowed([
+  'DEV'
+  'TEST'
+  'PROD'
+])
 param environment string
 var DbServerName  = 'db-${myPrefix}'
 
 
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: 'rg-${myPrefix}'
+  name: '${myPrefix}-rg'
   location: azureRegion
   tags: {
     project: 'UTA'
@@ -29,7 +34,7 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   }
 }
 
-module storage '../Resources/Iac/DATA/storage_001.bicep' = {
+module storage '../Resources/IaC/DATA/storage_001.bicep' = {
   name: 'stor-${myPrefix}'
   scope: rg
   params: {
@@ -37,7 +42,7 @@ module storage '../Resources/Iac/DATA/storage_001.bicep' = {
   }
 }
 
-module database '../Resources/Iac/SQL/db_001.bicep' = {
+module database '../Resources/IaC/SQL/db_001.bicep' = {
   name: 'db-${myPrefix}'
   scope: rg
   params: {
@@ -71,7 +76,9 @@ module capp '../Resources/IaC/ACA/aca_001.bicep' = {
     DbPass: dbPassword
     DockerRegistryUrl: 'docker.io'
     DockerRegistryUsername: ''
-    DockerRegistryPassword: ''    
+    DockerRegistryPassword: ''
+    DockerImageName: 'odoo'
+    DockerImageTag: '15'
   }
 }
 
