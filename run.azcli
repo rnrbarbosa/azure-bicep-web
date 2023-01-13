@@ -1,6 +1,5 @@
 REGION='xxxxx'
-az deployment sub create --location $REGION --template-file  ./Blueprints/001-WebApp
-.bicep -c
+az deployment sub create --location $REGION --template-file  ./Blueprints/001-WebApp.bicep -c
 
 az group list -o table
 RG=""
